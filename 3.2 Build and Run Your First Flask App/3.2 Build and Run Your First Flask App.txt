@@ -1,0 +1,65 @@
+-> Example Flask App Lesson  
+   -> Build and Run Your First Flask App  
+   -> Lesson Duration: 3 minutes  
+   -> Instructor: Brandon Gigous  
+
+-> Introduction to Repl.it and Flask Basics  
+   -> This lesson introduces how to build and run a simple Flask app using an online coding platform called Repl.it  
+   -> Repl.it is a browser-based development environment that allows you to write, run, and test your code without needing local setup  
+   -> The lesson focuses on creating a basic Flask application that returns a "Hello Web World!" message when accessed  
+
+-> What is Flask?  
+   -> Flask is a lightweight web framework for Python that allows you to create web applications with minimal setup  
+   -> It provides the tools needed to define routes, handle HTTP requests, and generate responses  
+
+-> Setting Up Repl.it for Flask Development  
+   -> Visit Repl.it and create a new Python project  
+   -> Repl.it allows you to write your Flask code in a central code editor window, run the application, and preview your web app in a browser  
+
+-> Writing Your First Flask App  
+   -> Open the code editor in Repl.it and input the following Python code to set up your Flask app:  
+      ```python  
+      from flask import Flask  # Import the Flask library  
+      app = Flask(__name__)  # Create an instance of the Flask application  
+
+      # Define the root route ('/') of your app  
+      @app.route('/')  
+      def index():  
+          return "Hello Web World!"  # Return a response when the route is accessed  
+
+      if __name__ == '__main__':  
+          # Run the Flask application on a specific host and port  
+          app.run(host='0.0.0.0', port=8080)  
+      ```  
+
+   -> Key Components of the Code:  
+      -> **`Flask` Import**: Brings in the Flask class for creating the web app  
+      -> **`app = Flask(__name__)`**: Instantiates the application, linking it to the current module  
+      -> **Route Definition**: The `@app.route('/')` decorator specifies that the `index` function should handle requests to the root URL (`/`)  
+      -> **Return Statement**: `return "Hello Web World!"` sends "Hello Web World!" as a response to the browser  
+      -> **`app.run`**: Starts the web server, making the app accessible  
+
+-> Running Your Flask App  
+   -> Click the "Run" button in Repl.it to execute your code  
+   -> Repl.it will display a log in the console, showing that the Flask app has started  
+   -> A preview URL is provided; click the link to open your web browser and view the output  
+
+-> Testing the Application  
+   -> When you access the app through the preview URL, the message "Hello Web World!" will appear in your browser  
+   -> This confirms your Flask app is running correctly  
+
+-> Modifying and Experimenting with the Flask App  
+   -> To customize the response, change the message in the `return` statement of the `index` function  
+      -> Example: Change `"Hello Web World!"` to `"Welcome to My Flask App!"`  
+   -> Save and rerun the app to see the updated output in the browser  
+
+-> Troubleshooting Common Issues  
+   -> If the app doesn’t work as expected, check the following:  
+      -> Ensure all parentheses and quotes are properly closed in the code  
+      -> Verify that the `@app.route('/')` decorator is correctly applied above the `index` function  
+      -> Confirm that you clicked the "Run" button and used the correct preview URL  
+
+-> What’s Next?  
+   -> Congratulations! If your Flask app works, you’ve created your first web application  
+   -> The next steps involve setting up more complex features, such as additional routes, HTML templates, and handling user input  
+   -> This foundational step is crucial as it introduces you to the core structure of Flask, which you’ll build upon in subsequent lessons  

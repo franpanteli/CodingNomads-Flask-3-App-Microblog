@@ -1,0 +1,196 @@
+-> Example Flask App Lesson Overview  
+   -> Lesson Duration: 6 minutes  
+   -> Instructor: Brandon Gigous  
+   -> This lesson introduces the architecture and features of an example Flask app, **Microblog**, which serves as the foundation for the course project, **Ragtime**  
+
+-> Introduction  
+   -> In this course, you will build a music-sharing social network, **Ragtime**, designed as a social platform for connecting users through music  
+   -> Ragtime is based on an open-source Flask application called **Microblog**, which showcases FlaskÕs simplicity and versatility  
+   -> This lesson provides an overview of the key features and structure of **Microblog**, giving you a preview of the development journey ahead  
+
+-> Features of Microblog  
+   Microblog demonstrates how Flask and its extensions can be leveraged to create a fully functional, modern web application. Its features include  
+
+   -> **Storing Users and Content in a Database**  
+      -> Data is stored persistently using a relational database like SQLite or PostgreSQL  
+      -> Example: User accounts, posts, and relationships (e.g., followers) are maintained in the database  
+
+      -> Example Code: Setting up a database model for users and posts  
+         ```python  
+         from flask import Flask  
+         from flask_sqlalchemy import SQLAlchemy  
+
+         app = Flask(__name__)  
+         app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///microblog.db"  
+         db = SQLAlchemy(app)  
+
+         class User(db.Model):  
+             id = db.Column(db.Integer, primary_key=True)  
+             username = db.Column(db.String(80), unique=True, nullable=False)  
+             posts = db.relationship("Post", backref="author", lazy=True)  
+
+         class Post(db.Model):  
+             id = db.Column(db.Integer, primary_key=True)  
+             content = db.Column(db.Text, nullable=False)  
+             user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)  
+
+         if __name__ == "__main__":  
+             db.create_all()  
+         ```  
+
+   -> **Attractive Styling of Web Pages**  
+      -> HTML, CSS, and JavaScript work seamlessly with FlaskÕs template engine, Jinja2, to create responsive designs  
+
+      -> Example Code: Using a Bootstrap template for styling  
+         ```html  
+         <!doctype html>  
+         <html lang="en">  
+         <head>  
+             <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">  
+         </head>  
+         <body>  
+             <div class="container">  
+                 <h1>Welcome to Microblog!</h1>  
+             </div>  
+         </body>  
+         </html>  
+         ```  
+
+   -> **Email Delivery and Verification**  
+      -> Flask supports sending and receiving emails, including user registration confirmation emails and password resets  
+
+      -> Example Code: Sending a registration confirmation email  
+         ```python  
+         from flask_mail import Mail, Message  
+
+         app.config['MAIL_SERVER'] = 'smtp.example.com'  
+         app.config['MAIL_PORT'] = 587  
+         app.config['MAIL_USE_TLS'] = True  
+         app.config['MAIL_USERNAME'] = 'you@example.com'  
+         app.config['MAIL_PASSWORD'] = 'password'  
+         mail = Mail(app)  
+
+         @app.route("/send_email")  
+         def send_email():  
+             msg = Message("Hello", recipients=["user@example.com"])  
+             msg.body = "Thanks for registering!"  
+             mail.send(msg)  
+             return "Email sent!"  
+         ```  
+
+   -> **User Authentication and Registration**  
+      -> User login and registration systems are built-in, and Flask extensions such as Flask-Login and Flask-WTF simplify the process  
+
+      -> Example Code: Setting up user login functionality with Flask-Login  
+         ```python  
+         from flask_login import LoginManager, UserMixin, login_user  
+
+         login_manager = LoginManager()  
+         login_manager.init_app(app)  
+
+         class User(UserMixin):  
+             def __init__(self, id):  
+                 self.id = id  
+
+         @login_manager.user_loader  
+         def load_user(user_id):  
+             return User(user_id)  
+
+         @app.route("/login")  
+         def login():  
+             user = User(1)  
+             login_user(user)  
+             return "Logged in!"  
+         ```  
+
+   -> **User Permissions and Roles**  
+      -> Flask-Principal or custom logic can be used to manage user roles (admin, regular user) and permissions  
+
+      -> Example Code: Setting up role-based access control with Flask-Principal  
+         ```python  
+         from flask_principal import Permission, RoleNeed  
+
+         admin_role = RoleNeed("admin")  
+         admin_permission = Permission(admin_role)  
+
+         @app.route("/admin")  
+         @admin_permission.require(http_exception=403)  
+         def admin_panel():  
+             return "Welcome to the admin panel"  
+         ```  
+
+   -> **Creating and Editing Blog Posts and Profiles**  
+      -> Users can interact with the platform by creating blog posts, updating profiles, and interacting with others  
+
+      -> Example Code: Allowing users to create blog posts  
+         ```python  
+         @app.route("/create_post", methods=["POST"])  
+         def create_post():  
+             content = request.form["content"]  
+             post = Post(content=content, author=current_user)  
+             db.session.add(post)  
+             db.session.commit()  
+             return redirect(url_for("index"))  
+         ```  
+
+   -> **Users Can Follow Other Users**  
+      -> Microblog includes a social element, where users can follow and unfollow other users  
+
+   -> **Provides an API**  
+      -> Microblog exposes an API for external applications to interact with  
+
+-> Microblog Source Code  
+   -> Now, letÕs dive into the source code of **Microblog**. While itÕs not necessary to understand everything at this point, reviewing the structure can help you grasp the overall organisation of a Flask app  
+
+   -> **GitHub Repository Structure**  
+      - You can explore the files and folders on GitHub. Below is an outline of the folder structure for Microblog  
+
+      -> **app**  
+         - Contains the core of the web application, including models and routes  
+
+      -> **api**  
+         - Contains the API functionality for interacting with the application programmatically  
+
+      -> **auth**  
+         - Handles user authentication and registration  
+
+      -> **errors**  
+         - Custom error handling for common issues like 404 or 500 errors  
+
+      -> **main**  
+         - Contains core functionality like displaying posts, user profiles, and feed  
+
+      -> **static**  
+         - Where static files (CSS, JavaScript, images) are stored  
+
+      -> **templates**  
+         - The HTML files that define the structure of the website  
+
+      -> **deployment**  
+         - Configuration and settings for deploying the app to a production environment  
+
+      -> **migrations**  
+         - Scripts for managing database migrations  
+
+      -> **config.py**  
+         - Contains configuration settings for the app, including database and email settings  
+
+      -> **microblog.py**  
+         - Main entry point where the Flask app is instantiated  
+
+   -> After exploring the repository, remember, all these topics will be covered in more detail throughout the course  
+
+-> Summary: Microblog / Ragtime Example Project Architecture  
+   -> Microblog is an open-source application that serves as the foundation for the **Ragtime** project  
+   -> By exploring Microblog, youÕll get a feel for how Flask applications are structured and how the different components interact  
+   -> The app uses a variety of Flask extensions to handle tasks such as user authentication, email verification, and API creation  
+   -> The goal is to clone the Microblog source code, explore it, and get comfortable with its structure before diving deeper into building your own app  
+
+-> Free Webinar  
+   -> Is now a good time to get into tech?  
+   -> Learn how to break into software engineering, data science, and AI in 2025 without spending £10k+ or quitting your day job  
+   -> What youÕll learn:  
+      -> The state of the tech job market Ð whatÕs the deal with layoffs, AI, and shady bootcamps?  
+      -> Who is getting jobs right now and the skills in high demand  
+      -> What it really takes to get a technical job today Ð itÕs more than just tech skills  
+      -> Is pursuing these paths still worth your time and money?  
