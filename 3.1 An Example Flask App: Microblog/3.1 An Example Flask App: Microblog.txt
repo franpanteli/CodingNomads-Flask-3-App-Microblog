@@ -1,11 +1,9 @@
 -> Example Flask App Lesson Overview  
-   -> Lesson Duration: 6 minutes  
-   -> Instructor: Brandon Gigous  
    -> This lesson introduces the architecture and features of an example Flask app, **Microblog**, which serves as the foundation for the course project, **Ragtime**  
 
 -> Introduction  
    -> In this course, you will build a music-sharing social network, **Ragtime**, designed as a social platform for connecting users through music  
-   -> Ragtime is based on an open-source Flask application called **Microblog**, which showcases FlaskÕs simplicity and versatility  
+   -> Ragtime is based on an open-source Flask application called **Microblog**, which showcases Flask's simplicity and versatility  
    -> This lesson provides an overview of the key features and structure of **Microblog**, giving you a preview of the development journey ahead  
 
 -> Features of Microblog  
@@ -39,7 +37,7 @@
          ```  
 
    -> **Attractive Styling of Web Pages**  
-      -> HTML, CSS, and JavaScript work seamlessly with FlaskÕs template engine, Jinja2, to create responsive designs  
+      -> HTML, CSS, and JavaScript work seamlessly with Flask's template engine, Jinja2, to create responsive designs  
 
       -> Example Code: Using a Bootstrap template for styling  
          ```html  
@@ -140,7 +138,7 @@
       -> Microblog exposes an API for external applications to interact with  
 
 -> Microblog Source Code  
-   -> Now, letÕs dive into the source code of **Microblog**. While itÕs not necessary to understand everything at this point, reviewing the structure can help you grasp the overall organisation of a Flask app  
+   -> Now, let's dive into the source code of **Microblog**. While it's not necessary to understand everything at this point, reviewing the structure can help you grasp the overall organisation of a Flask app  
 
    -> **GitHub Repository Structure**  
       - You can explore the files and folders on GitHub. Below is an outline of the folder structure for Microblog  
@@ -182,15 +180,15 @@
 
 -> Summary: Microblog / Ragtime Example Project Architecture  
    -> Microblog is an open-source application that serves as the foundation for the **Ragtime** project  
-   -> By exploring Microblog, youÕll get a feel for how Flask applications are structured and how the different components interact  
+   -> By exploring Microblog, you'll get a feel for how Flask applications are structured and how the different components interact  
    -> The app uses a variety of Flask extensions to handle tasks such as user authentication, email verification, and API creation  
    -> The goal is to clone the Microblog source code, explore it, and get comfortable with its structure before diving deeper into building your own app  
 
 -> Free Webinar  
    -> Is now a good time to get into tech?  
-   -> Learn how to break into software engineering, data science, and AI in 2025 without spending £10k+ or quitting your day job  
-   -> What youÕll learn:  
-      -> The state of the tech job market Ð whatÕs the deal with layoffs, AI, and shady bootcamps?  
+   -> Learn how to break into software engineering, data science, and AI in 2025 without spending '10k+ or quitting your day job  
+   -> What you'll learn:  
+      -> The state of the tech job market ' what's the deal with layoffs, AI, and shady bootcamps?  
       -> Who is getting jobs right now and the skills in high demand  
-      -> What it really takes to get a technical job today Ð itÕs more than just tech skills  
+      -> What it really takes to get a technical job today ' it's more than just tech skills  
       -> Is pursuing these paths still worth your time and money?  

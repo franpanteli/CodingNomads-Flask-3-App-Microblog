@@ -1,7 +1,5 @@
 -> Example Flask App Lesson  
    -> Build and Run Your First Flask App  
-   -> Lesson Duration: 3 minutes  
-   -> Instructor: Brandon Gigous  
 
 -> Introduction to Repl.it and Flask Basics  
    -> This lesson introduces how to build and run a simple Flask app using an online coding platform called Repl.it  
@@ -49,17 +47,17 @@
    -> This confirms your Flask app is running correctly  
 
 -> Modifying and Experimenting with the Flask App  
-   -> To customize the response, change the message in the `return` statement of the `index` function  
+   -> To customise the response, change the message in the `return` statement of the `index` function  
       -> Example: Change `"Hello Web World!"` to `"Welcome to My Flask App!"`  
    -> Save and rerun the app to see the updated output in the browser  
 
 -> Troubleshooting Common Issues  
-   -> If the app doesnÕt work as expected, check the following:  
+   -> If the app doesn't work as expected, check the following:  
       -> Ensure all parentheses and quotes are properly closed in the code  
       -> Verify that the `@app.route('/')` decorator is correctly applied above the `index` function  
       -> Confirm that you clicked the "Run" button and used the correct preview URL  
 
--> WhatÕs Next?  
-   -> Congratulations! If your Flask app works, youÕve created your first web application  
+-> What's Next?  
+   -> Congratulations! If your Flask app works, you've created your first web application  
    -> The next steps involve setting up more complex features, such as additional routes, HTML templates, and handling user input  
-   -> This foundational step is crucial as it introduces you to the core structure of Flask, which youÕll build upon in subsequent lessons  
+   -> This foundational step is crucial as it introduces you to the core structure of Flask, which you'll build upon in subsequent lessons  
