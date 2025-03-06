@@ -1,19 +1,19 @@
--> Example Flask App Lesson Overview  
-   -> This lesson introduces the architecture and features of an example Flask app, **Microblog**, which serves as the foundation for the course project, **Ragtime**  
+-> example flask app lesson overview  
+   -> this lesson introduces the architecture and features of an example flask app, **microblog**, which serves as the foundation for the course project, **ragtime**  
 
--> Introduction  
-   -> In this course, you will build a music-sharing social network, **Ragtime**, designed as a social platform for connecting users through music  
-   -> Ragtime is based on an open-source Flask application called **Microblog**, which showcases Flask's simplicity and versatility  
-   -> This lesson provides an overview of the key features and structure of **Microblog**, giving you a preview of the development journey ahead  
+-> introduction  
+   -> in this course, you will build a music-sharing social network, **ragtime**, designed as a social platform for connecting users through music  
+   -> ragtime is based on an open-source flask application called **microblog**, which showcases flask's simplicity and versatility  
+   -> this lesson provides an overview of the key features and structure of **microblog**, giving you a preview of the development journey ahead  
 
--> Features of Microblog  
-   Microblog demonstrates how Flask and its extensions can be leveraged to create a fully functional, modern web application. Its features include  
+-> features of microblog  
+   microblog demonstrates how flask and its extensions can be leveraged to create a fully functional, modern web application. its features include  
 
-   -> **Storing Users and Content in a Database**  
-      -> Data is stored persistently using a relational database like SQLite or PostgreSQL  
-      -> Example: User accounts, posts, and relationships (e.g., followers) are maintained in the database  
+   -> **storing users and content in a database**  
+      -> data is stored persistently using a relational database like sqlite or postgresql  
+      -> example: user accounts, posts, and relationships (e.g., followers) are maintained in the database  
 
-      -> Example Code: Setting up a database model for users and posts  
+      -> example code: setting up a database model for users and posts  
          ```python  
          from flask import Flask  
          from flask_sqlalchemy import SQLAlchemy  
@@ -36,10 +36,10 @@
              db.create_all()  
          ```  
 
-   -> **Attractive Styling of Web Pages**  
-      -> HTML, CSS, and JavaScript work seamlessly with Flask's template engine, Jinja2, to create responsive designs  
+   -> **attractive styling of web pages**  
+      -> html, css, and javascript work seamlessly with flask's template engine, jinja2, to create responsive designs  
 
-      -> Example Code: Using a Bootstrap template for styling  
+      -> example code: using a bootstrap template for styling  
          ```html  
          <!doctype html>  
          <html lang="en">  
@@ -54,10 +54,10 @@
          </html>  
          ```  
 
-   -> **Email Delivery and Verification**  
-      -> Flask supports sending and receiving emails, including user registration confirmation emails and password resets  
+   -> **email delivery and verification**  
+      -> flask supports sending and receiving emails, including user registration confirmation emails and password resets  
 
-      -> Example Code: Sending a registration confirmation email  
+      -> example code: sending a registration confirmation email  
          ```python  
          from flask_mail import Mail, Message  
 
@@ -76,10 +76,10 @@
              return "Email sent!"  
          ```  
 
-   -> **User Authentication and Registration**  
-      -> User login and registration systems are built-in, and Flask extensions such as Flask-Login and Flask-WTF simplify the process  
+   -> **user authentication and registration**  
+      -> user login and registration systems are built-in, and flask extensions such as flask-login and flask-wtf simplify the process  
 
-      -> Example Code: Setting up user login functionality with Flask-Login  
+      -> example code: setting up user login functionality with flask-login  
          ```python  
          from flask_login import LoginManager, UserMixin, login_user  
 
@@ -101,10 +101,10 @@
              return "Logged in!"  
          ```  
 
-   -> **User Permissions and Roles**  
-      -> Flask-Principal or custom logic can be used to manage user roles (admin, regular user) and permissions  
+   -> **user permissions and roles**  
+      -> flask-principal or custom logic can be used to manage user roles (admin, regular user) and permissions  
 
-      -> Example Code: Setting up role-based access control with Flask-Principal  
+      -> example code: setting up role-based access control with flask-principal  
          ```python  
          from flask_principal import Permission, RoleNeed  
 
@@ -117,10 +117,10 @@
              return "Welcome to the admin panel"  
          ```  
 
-   -> **Creating and Editing Blog Posts and Profiles**  
-      -> Users can interact with the platform by creating blog posts, updating profiles, and interacting with others  
+   -> **creating and editing blog posts and profiles**  
+      -> users can interact with the platform by creating blog posts, updating profiles, and interacting with others  
 
-      -> Example Code: Allowing users to create blog posts  
+      -> example code: allowing users to create blog posts  
          ```python  
          @app.route("/create_post", methods=["POST"])  
          def create_post():  
@@ -131,55 +131,55 @@
              return redirect(url_for("index"))  
          ```  
 
-   -> **Users Can Follow Other Users**  
-      -> Microblog includes a social element, where users can follow and unfollow other users  
+   -> **users can follow other users**  
+      -> microblog includes a social element, where users can follow and unfollow other users  
 
-   -> **Provides an API**  
-      -> Microblog exposes an API for external applications to interact with  
+   -> **provides an api**  
+      -> microblog exposes an api for external applications to interact with  
 
--> Microblog Source Code  
-   -> Now, let's dive into the source code of **Microblog**. While it's not necessary to understand everything at this point, reviewing the structure can help you grasp the overall organisation of a Flask app  
+-> microblog source code  
+   -> now, let's dive into the source code of **microblog**. while it's not necessary to understand everything at this point, reviewing the structure can help you grasp the overall organisation of a flask app  
 
-   -> **GitHub Repository Structure**  
-      - You can explore the files and folders on GitHub. Below is an outline of the folder structure for Microblog  
+   -> **github repository structure**  
+      - you can explore the files and folders on github. below is an outline of the folder structure for microblog  
 
       -> **app**  
-         - Contains the core of the web application, including models and routes  
+         - contains the core of the web application, including models and routes  
 
       -> **api**  
-         - Contains the API functionality for interacting with the application programmatically  
+         - contains the api functionality for interacting with the application programmatically  
 
       -> **auth**  
-         - Handles user authentication and registration  
+         - handles user authentication and registration  
 
       -> **errors**  
-         - Custom error handling for common issues like 404 or 500 errors  
+         - custom error handling for common issues like 404 or 500 errors  
 
       -> **main**  
-         - Contains core functionality like displaying posts, user profiles, and feed  
+         - contains core functionality like displaying posts, user profiles, and feed  
 
       -> **static**  
-         - Where static files (CSS, JavaScript, images) are stored  
+         - where static files (css, javascript, images) are stored  
 
       -> **templates**  
-         - The HTML files that define the structure of the website  
+         - the html files that define the structure of the website  
 
       -> **deployment**  
-         - Configuration and settings for deploying the app to a production environment  
+         - configuration and settings for deploying the app to a production environment  
 
       -> **migrations**  
-         - Scripts for managing database migrations  
+         - scripts for managing database migrations  
 
       -> **config.py**  
-         - Contains configuration settings for the app, including database and email settings  
+         - contains configuration settings for the app, including database and email settings  
 
       -> **microblog.py**  
-         - Main entry point where the Flask app is instantiated  
+         - main entry point where the flask app is instantiated  
 
-   -> After exploring the repository, remember, all these topics will be covered in more detail throughout the course  
+   -> after exploring the repository, remember, all these topics will be covered in more detail throughout the course  
 
--> Summary: Microblog / Ragtime Example Project Architecture  
-   -> Microblog is an open-source application that serves as the foundation for the **Ragtime** project  
-   -> By exploring Microblog, you'll get a feel for how Flask applications are structured and how the different components interact  
-   -> The app uses a variety of Flask extensions to handle tasks such as user authentication, email verification, and API creation  
-   -> The goal is to clone the Microblog source code, explore it, and get comfortable with its structure before diving deeper into building your own app  
+-> summary: microblog / ragtime example project architecture  
+   -> microblog is an open-source application that serves as the foundation for the **ragtime** project  
+   -> by exploring microblog, you'll get a feel for how flask applications are structured and how the different components interact  
+   -> the app uses a variety of flask extensions to handle tasks such as user authentication, email verification, and api creation  
+   -> the goal is to clone the microblog source code, explore it, and get comfortable with its structure before diving deeper into building your own app
